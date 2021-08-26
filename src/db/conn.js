@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
-const DB = "mongodb+srv://menjavelindb:javelinranker@cluster0.whxi4.mongodb.net/menjavelinranking?retryWrites=true&w=majority";
+dotenv.config({path:'./config.env'});
+
+// const DB = process.env.DATABASE;
 
 // mongoose.connect("mongodb://localhost:27017/javelinmen",{
 //     useNewUrlParser: true,
@@ -11,7 +14,7 @@ const DB = "mongodb+srv://menjavelindb:javelinranker@cluster0.whxi4.mongodb.net/
 //     console.log(err);
 // })
 
-mongoose.connect(DB,{
+mongoose.connect(process.env.DATABASE,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // useFindAndModify: false,
